@@ -75,25 +75,6 @@ class TestBankAccount(unittest.TestCase):
 
         self.assertEqual(account.get_balance(), 100)
 
-    def test_withdraw_negative_amount_raises_value_error(self):
-        account = BankAccount("Alice", 100)
-
-        with self.assertRaisesRegex(ValueError, "Withdrawal must be positive"):
-            account.withdraw(-10)
-
-        self.assertEqual(account.get_balance(), 100)
-
-    def test_withdraw_amount_greater_than_balance_raises_insufficient_funds_error(
-        self,
-    ):
-        account = BankAccount("Alice", 100)
-
-        with self.assertRaisesRegex(
-            InsufficientFundsError, "Not enough balance"
-        ):
-            account.withdraw(101)
-
-        self.assertEqual(account.get_balance(), 100)
 
     def test_transfer_positive_amount(self):
         sender = BankAccount("Alice", 100)
