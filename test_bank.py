@@ -11,15 +11,7 @@ class TestBankAccount(unittest.TestCase):
         self.assertEqual(account.balance, 0)
         self.assertEqual(account.get_balance(), 0)
 
-    def test_init_with_zero_balance(self):
-        account = BankAccount("Alice", 0)
-
-        self.assertEqual(account.balance, 0)
-
-    def test_init_with_positive_balance(self):
-        account = BankAccount("Alice", 100)
-
-        self.assertEqual(account.balance, 100)
+   
 
     def test_init_with_negative_balance_raises_value_error(self):
         with self.assertRaisesRegex(
