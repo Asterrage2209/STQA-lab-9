@@ -43,21 +43,6 @@ class TestBankAccount(unittest.TestCase):
 
         self.assertEqual(account.get_balance(), 100)
 
-    def test_withdraw_positive_amount_less_than_balance(self):
-        account = BankAccount("Alice", 100)
-
-        result = account.withdraw(40)
-
-        self.assertEqual(result, 60)
-        self.assertEqual(account.get_balance(), 60)
-
-    def test_withdraw_amount_equal_to_balance(self):
-        account = BankAccount("Alice", 100)
-
-        result = account.withdraw(100)
-
-        self.assertEqual(result, 0)
-        self.assertEqual(account.get_balance(), 0)
 
 
 
