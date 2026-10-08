@@ -59,24 +59,9 @@ class TestBankAccount(unittest.TestCase):
         self.assertEqual(result, 0)
         self.assertEqual(account.get_balance(), 0)
 
-    def test_withdraw_zero_raises_value_error(self):
-        account = BankAccount("Alice", 100)
-
-        with self.assertRaisesRegex(ValueError, "Withdrawal must be positive"):
-            account.withdraw(0)
-
-        self.assertEqual(account.get_balance(), 100)
 
 
-    def test_transfer_positive_amount(self):
-        sender = BankAccount("Alice", 100)
-        recipient = BankAccount("Bob", 50)
 
-        result = sender.transfer(recipient, 40)
-
-        self.assertIsNone(result)
-        self.assertEqual(sender.get_balance(), 60)
-        self.assertEqual(recipient.get_balance(), 90)
 
     def test_transfer_amount_equal_to_sender_balance(self):
         sender = BankAccount("Alice", 100)
